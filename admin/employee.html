@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhân viên</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 16px;
+        }
+        .main {
+            width: 100%;
+            height: 100vh;
+            padding: 10px;
+            background-color: #94B1D0;
+        }
+        .main-1 {
+            width: 100%;
+            height: 100%;
+            padding: 0 10px;
+        }
+        .menu {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            justify-content: space-between;
+        }
+        .menu > div {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .item-cnt-menu-1 {
+            height: 40px;
+            width: 100%;
+            border-radius: 10px;
+            background-color: #0E59A6;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            white-space: nowrap ;
+            cursor: pointer;
+        }
+        .item-menu-1 {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            /* padding: 0 16px; */
+            
+        }
+        .active-link-menu {
+            background: #fff !important;
+            color: #0E59A6 !important;
+        }
+        .active-link-menu .item-cnt-menu-1 {
+            background-color: #fff;
+            color: #0E59A6;
+        }
+        .main-content-1 {
+            border-radius: 10px;
+            background-color: #fff;
+            height: calc(100% - 60px);
+            padding: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-search-1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+        .main-search-input-1 {
+            width: 100%;
+            height: 44px;
+            border-radius: 80px;
+            outline-color: #2e89ff;
+            padding: 10px;
+        }
+        .icon-search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .img-icon-search {
+            width: 20px;
+            height: 20px;
+        }
+        .wrap-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+        }
+        .item-product {
+            width: calc(25% - 30px / 4);
+            border-radius: 10px;
+            background-color: #94B1D0;
+            overflow: hidden;
+
+        }
+        .wrap-item-product-img {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item-product-img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1 ;
+            object-fit: cover;
+        }
+        .title-item-product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            font-size: 16px;
+            color: #fff;
+            text-transform: capitalize;
+            background-color: #94B1D0;
+            width: 100%;
+        }
+        .amount-item-product {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #000;
+            height: 30px;
+
+        }
+        .amount-wrap-item-product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .amount-wrap-item-product-img {
+            width: 10px;
+            height: 10px;
+            object-fit: cover;
+        }
+        .item-product-price {
+            font-size: 12px;
+            color: #fff;
+        }
+        .pagination-1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+        }
+        .item-pagination-1 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .pagination-active {
+            background: #94B1D0;
+        }
+        .main-2 {
+            
+        }
+        .menu-reverse {
+            flex-direction: row-reverse;
+        }
+        .item-cnt-menu-img {
+            width: 18px;
+            height: 18px;
+        }
+        .item-cnt-menu-text {
+            color: #fff;
+        }
+        .item-extends {
+            gap: 10px;
+        }
+        .title-main-content-1 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: #0E59A6;
+            text-transform: uppercase;
+        }
+        .main-content-2-z {
+            width: 100%;
+            border-right: 2px solid #000;
+            padding-right: 70px;
+        }
+        .main-thead-table {
+            width: 100%;
+        }
+        .main-tbody-table {
+            width: 100%;
+        }
+        .a-xiaw-a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .wrap-img-sd {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap-img-sd-i {
+            width: 10px;
+            height: 10px;
+        }
+        .main-content-2-table {
+            width: 100%;
+        }
+        .as-thead td {
+            text-align: center;
+        }
+        .as-tbody td {
+            text-align: center;
+        }
+        .wrap-img-sd-z {
+            width: 15px;
+            height: 15px;
+        }
+        .as-thead td {
+            border-bottom: 1px solid #000
+        }
+        td {
+            padding: 16px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        .main-content-3-x {
+            width: 100%;
+            padding: 16px 16px 0 16px;
+        }
+        .main-content-3-1 {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-amount-3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .total-amount-3-txt {
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .display-amount-3 {
+            font-size: 12px;
+        }
+        .main-content-3-2 {
+            margin-top: 10px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-main-content-3-2 {
+            width: 230px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 40px;
+            background: #F02828;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .btn-res-content-3-2 {
+            background: #40BD2C;
+        }
+        .wrap-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap-img-2s {
+            width: 19px;
+            height: 19px;
+            object-fit: contain;
+        }
+        .cnt-2s {
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .w-1-header {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+        }
+        .main-content {
+            width: 100%;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 30px 10px;
+            height: calc(100% - 60px);
+        }
+        .main-content-1 {
+            width: 100%;
+        }
+        .main-content-2 {
+            width: 40%;
+            display: flex;
+
+        }
+        .td-app {
+            text-align: left !important;
+        }
+        .main-content-2-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0E59A6;
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            padding: 16px;
+        }
+        .w-sa-wa-a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .sa-wa-wszd {
+            font-weight: 600;
+            width: 200px
+        }
+        .w-m-content-2 {
+            width: 100%;
+        }
+        .w-kao-sa {
+            padding: 0 50px;
+        }
+        .btn-result {
+            width: 120px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #fff;
+            background: #40BD2C;
+            cursor: pointer;
+        }
+        .as-ass-a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            color: unset;
+            text-decoration: none;
+        }
+        a.active-link-menu {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="main-1">
+            <div class="menu">
+                <div class="w-1-header">
+                    <a href="staff.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1">
+                                Bán hàng
+                            </div>
+                        </div>
+                    </a>
+                    <a href="import.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1">
+                                Nhập hàng
+                            </div>
+                        </div>
+                    </a>
+                    <a href="summary.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1">
+                                Tổng kết ca
+                            </div>
+                        </div>
+                    </a>
+                    <a href="time_keeping.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1">
+                                Chấm công
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-1-header">
+                    <div class="item-menu-1">
+                        <a href="stats.html">
+                            <div class="item-cnt-menu-1 item-extends">
+                                Thống kê
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item-menu-1">
+                       <a href="shift.html">
+                           <div class="item-cnt-menu-1 item-extends">
+                               Ca làm việc
+                           </div>
+                       </a> 
+                    </div>
+                    <div class="item-menu-1">
+                        <div class="item-cnt-menu-1 item-extends active-link-menu">
+                            <a class="ass-fdsadas" href="staff.html">
+                                <div class="item-cnt-menu-1">
+                                    Nhân viên
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item-menu-1">
+                        <div class="item-cnt-menu-1 item-extends">
+                            <span class="item-cnt-menu-text">QuanLy</span><img class="item-cnt-menu-img" src="Vector (5).png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .main-content-1-z {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+                }
+                .main-content-1-z-a {
+                    height: 44px;
+                    border-radius: 80px;
+                    padding: 0 10px;
+                    width: 540px;
+                }
+                .btn-search {
+                    width: 120px;
+                    height: 44px;
+                    background-color: #40BD2C;
+                    color: #fff;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .im-ds-awdsa {
+                    width: 14px;
+                    height: 14px;
+
+                }
+                .asa-aw-daw-adas {
+                    font-size: 12px;
+                    color: #fff;
+                }
+                .main-content-2-0-ahjdha {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    margin-top: 16px;
+                    justify-content: space-between;
+                    gap: 20px;
+                }
+                .itre-asaw-aswasa-wsaw {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .sa-aw-c-asaw {
+                    width: 129px;
+                    height: 125px;
+                    object-fit: cover;
+
+                }
+                
+                .as-wd-qa-srfs-eaw {
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    font-size: 12px;
+                    background-color: #000;
+                }
+                .jdsaj-dsa-wawsas-as {
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    background-color: #94B1D0;
+
+                }
+                .item-content-2-0-assa {
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                .w-main-content-1 {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .main-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .title-main-content-a {
+                    font-size: 24px;
+                    color: #0e59a6;
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-weight: 600;
+                }
+                .main-a-wa-assa {
+                    width: 300px;
+
+                }
+                .asa-wa-d-ewa-as {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    margin-bottom: 16px;
+                }
+                .a-dae-ad-aweas {
+                    font-weight: 600;
+                }
+                .wrap-btn {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .btn-main {
+                    width: 120px;
+                    height: 40px;
+                    border-radius: 5px;
+                    color: #fff;
+                    background-color: #40BD2C;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    user-select: none;
+                }
+                .is-timekeeping {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .wrap-img {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .wrap-img-1 {
+                    width: 17px;
+                    height: 14px;
+                    object-fit: contain;
+                }
+                .txc-ds-a-aea-s {
+                    color: #40BD2C;
+                }
+                #is-timekeeping {
+                    display: none;
+                }
+                .w-d-ea-da {
+                    width: 100%;
+                }
+                .main-content-2-z {
+                     width: 100%;
+                }
+                .main-thead-table {
+                    width: 100%;
+                }
+                .main-tbody-table {
+                    width: 100%;
+                }
+                .a-xiaw-a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 12px;
+                }
+                .wrap-img-sd {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .wrap-img-sd-i {
+                    width: 10px;
+                    height: 10px;
+                }
+                .main-content-2-table {
+                    width: 100%;
+                }
+                .as-thead td {
+                    text-align: center;
+                }
+                .as-tbody td {
+                    text-align: center;
+                }
+                .wrap-img-sd-z {
+                    width: 15px;
+                    height: 15px;
+                }
+                .as-thead td {
+                    border-bottom: 1px solid #000
+                }
+                td {
+                    padding: 16px;
+                }
+                table {
+                    border-collapse: collapse;
+                }
+                .jvkjdjhskdfsdas {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .kodsaksadsawe {
+                    width: 100px;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #3D92CF;
+                    color: #fff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                .jfijdasfa {
+                    width: 70px;
+                    background-color: #F02828;
+                }
+                
+            </style>
+            <div class="main-content">
+                <div class="title-main-content-a">
+                    Quản lý nhân viên
+                </div>
+                <br>
+                <br>
+                <div class="wrap-btn">
+                    <div id="btn-main" class="btn-main">
+                        Thêm mới
+                    </div>
+                    <div id="is-timekeeping" class="is-timekeeping" style="display: none">
+                        <div class="wrap-img">
+                            <img src="Vector (12).png" class="wrap-img-1" alt="">
+                        </div>
+                        <span class="txc-ds-a-aea-s">Chấm công thành công</span>
+                    </div>
+                </div>
+                <br>
+                <div class="w-d-ea-da">
+                    <table class="main-content-2-table">
+                        <thead class="main-thead-table">
+                            <tr class="as-thead">
+                                <td></td>
+                                <td>Tên nhân viên</td>
+                                <td>Email</td>
+                                <td>Mật khẩu</td>
+                                <td>Cấp bậc</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody class="main-tbody-table">
+                            <tr class="as-tbody">
+                                <td>
+                                    <div class="wrap-img-sd">
+                                        1.
+                                    </div>
+                                </td>
+                                <td>Phạm Trà My</td>
+                                <td>
+                                    <div class="amount-x-as">tramypham@gmail.com</div>
+                                </div>
+                                <td>tramy@2022</td>
+                                <td>Admin</td>
+                                <td>
+                                    <div class="jvkjdjhskdfsdas">
+                                        <div class="kodsaksadsawe ">Chỉnh sửa</div>
+                                        <div class="kodsaksadsawe jfijdasfa">Xóa</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="as-tbody">
+                                <td>
+                                    <div class="wrap-img-sd">
+                                        2.
+                                    </div>
+                                </td>
+                                <td>Nguyễn Văn A</td>
+                                <td>
+                                    <div class="amount-x-as">a@gmail.com</div>
+                                </div>
+                                <td>a@2022</td>
+                                <td>Staff</td>
+                                <td>
+                                    <div class="jvkjdjhskdfsdas">
+                                        <div class="kodsaksadsawe ">Chỉnh sửa</div>
+                                        <div class="kodsaksadsawe jfijdasfa">Xóa</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="as-tbody">
+                                <td>
+                                    <div class="wrap-img-sd">
+                                        3.
+                                    </div>
+                                </td>
+                                <td>Lê Thị B</td>
+                                <td>
+                                    <div class="amount-x-as">b@gmail.com</div>
+                                </div>
+                                <td>b@2022</td>
+                                <td>Staff</td>
+                                <td>
+                                    <div class="jvkjdjhskdfsdas">
+                                        <div class="kodsaksadsawe ">Chỉnh sửa</div>
+                                        <div class="kodsaksadsawe jfijdasfa">Xóa</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="as-tbody">
+                                <td>
+                                    <div class="wrap-img-sd">
+                                        4.
+                                    </div>
+                                </td>
+                                <td>Đoàn Văn C</td>
+                                <td>
+                                    <div class="amount-x-as">c@gmail.com</div>
+                                </div>
+                                <td>c@2022</td>
+                                <td>Staff</td>
+                                <td>
+                                    <div class="jvkjdjhskdfsdas">
+                                        <div class="kodsaksadsawe ">Chỉnh sửa</div>
+                                        <div class="kodsaksadsawe jfijdasfa">Xóa</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <style>
+            .popup-x-s {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 0;
+                left: 0;
+                display: none;
+                z-index: 99;
+
+            }
+            .main-x-s {
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid #000;
+                width: 600px;
+                background-color: #fff;
+                position: relative;
+            }
+            .title-main-x-s {
+                font-size: 20px;
+                font-weight: 600;
+                color: #0E59A6;
+                text-transform: uppercase;
+                text-align: center;
+                margin-bottom: 16px;
+            }
+            .a-ad-c-asaw {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                gap: 16px;
+            }
+            .AJas-sae-adx-aws {
+                width: 129px;
+                height: 125px;
+                background-color: #d9d9d9;
+                border-radius: 5px;
+            }
+            .asdf-aev-asd {
+                flex: 1 1 0;
+            }   
+            .dad--d-f-es-adas {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sjkd-sd-a--dsasa {
+                font-size: 18px;
+                font-weight: 700;
+            }
+            .dad--d-f-es-adas {
+                padding: 10px 0;
+            }
+            .close-main {
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 10px;
+                cursor: pointer;
+                transform: scale(1.5);
+            }
+            .adfd-fsdadsd-adas {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 16px;
+            }
+            .sdsfddasd-asas-dsas-saaas {
+                border-radius: 5px;
+                width: 120px;
+                height: 40px;
+                cursor: pointer;
+                background-color: #40BD2C;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 700;
+                text-transform: uppercase;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .sdafdddas-sdfd-asdasa-dfa {
+                border-radius: 5px;
+                width: 120px;
+                height: 40px;
+                cursor: pointer;
+                background-color: #F02828;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 700;
+                text-transform: uppercase;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+        <div id="popup-x-s" class="popup-x-s">
+            <div class="main-x-s">
+                <div id="close-main" class="close-main">X</div>
+                <div class="title-main-x-s">
+                    Thêm mới nhân viên
+                </div>
+                <div class="a-ad-c-asaw">
+                    <div class="AJas-sae-adx-aws">
+
+                    </div>
+                    <div class="asdf-aev-asd">
+                        <div class="dad--d-f-es-adas">
+                            <div class="sjkd-sd-a--dsasa">
+                                Tên nhân viên
+                            </div>
+                            <div class="askjad-as-asd-fss">
+
+                            </div>
+                        </div>
+                        <div class="dad--d-f-es-adas">
+                            <div class="sjkd-sd-a--dsasa">
+                                Email
+                            </div>
+                            <div class="askjad-as-asd-fss">
+
+                            </div>
+                        </div>
+                        <div class="dad--d-f-es-adas">
+                            <div class="sjkd-sd-a--dsasa">
+                                Mật khẩu
+                            </div>
+                            <div class="askjad-as-asd-fss">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asdf-aev-asd">
+                    <div class="dad--d-f-es-adas">
+                        <div class="sjkd-sd-a--dsasa">
+                            Địa chỉ:
+                        </div>
+                        <div class="askjad-as-asd-fss">
+
+                        </div>
+                    </div>
+                    <div class="dad--d-f-es-adas">
+                        <div class="sjkd-sd-a--dsasa">
+                            Ngày sinh
+                        </div>
+                        <div class="askjad-as-asd-fss">
+
+                        </div>
+                    </div>
+                    <div class="dad--d-f-es-adas">
+                        <div class="sjkd-sd-a--dsasa">
+                            CMND
+                        </div>
+                        <div class="askjad-as-asd-fss">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="adfd-fsdadsd-adas">
+                    <div class="sdafdddas-sdfd-asdasa-dfa">
+                        Hủy bỏ
+                    </div>
+                    <div class="sdsfddasd-asas-dsas-saaas">
+                        Thêm mới
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("btn-main").onclick= function() {
+        document.getElementById("is-timekeeping").style.display= "flex"
+        document.getElementById("btn-main").style.display= "none"
+    }
+    document.getElementById("close-main").onclick= function() {
+        document.getElementById("popup-x-s").style.display= "none"
+    }
+    document.getElementById("btn-main").onclick= function() {
+        document.getElementById("popup-x-s").style.display= "flex"
+    }
+</script>
+</html>

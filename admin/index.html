@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner đăng nhập</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 16px;
+        }
+        .main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .avt {
+            width: 50%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .avt-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .login {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #94B1D0;
+        }
+        .login * {
+            color: #fff;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+            margin-top: 50px;
+        }
+        .logo-img {
+            width: 178px;
+            height: 178px;
+            object-fit: contain;
+
+        }
+        .w-input {
+            margin-bottom: 12px;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 16px;
+            margin-bottom: 16px;
+        }
+        .i-input {
+            width: 350px;
+            border-radius: 80px;
+            border: 1px solid #fff;
+            height: 44px;
+            padding: 10px;
+            color: #000;
+            outline-color: #2e89ff;
+        }
+        .btn-login {
+            width: 350px;
+            height: 44px;
+            border: 2px solid #fff;
+            border-radius: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-color: #77CA6A;
+            color: #fff;
+            text-transform: uppercase;
+            
+        }
+
+        .w-x {
+            margin-bottom: 16px;
+            width:350px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .w-x > div {
+            font-size: 12px;
+            color: #52708c;
+        }
+        .i-w-x-1 {
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        .msg {
+            margin-top: 30px;
+            text-align: center;
+            width: 350px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .msg-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .msg-icon-img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+        .msg-text {
+            color: #EA2424;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="avt">
+            <img class="avt-img" alt="open" src="311014388_415388560784222_2399193018751428474_n 1.png"    />
+        </div>
+        <div class="login">
+            <div class="w-c-login">
+                <div class="logo">
+                    <img src="Ellipse 1.png" class="logo-img" alt="">
+                </div>
+                <div id="title" class="title">
+                    Đăng nhập
+                </div>
+                <div class="w-input">
+                    <div class="t-w-input">
+                        Tên tài khoản
+                    </div>
+                    <input id="account" type="text" class="i-input" placeholder="Tên tài khoản">
+                </div>
+                <div class="w-input">
+                    <div class="t-w-input">
+                        Mật khẩu
+                    </div>
+                    <input id="password" type="password" class="i-input" placeholder="Mật khẩu">
+                </div>
+                <div class="w-input">
+                    <button id="btn-login" class="btn-login">Đăng nhập</button>
+                </div>
+                <div class="w-x">
+                    <div class="w-x-1">
+                        <input class="i-w-x-1" type="checkbox">&nbsp;&nbsp;Nhớ mật khẩu
+                    </div>
+                    <div class="w-x-2">
+                        Quên mật khẩu
+                    </div>
+                </div>
+                <div id="msg" class="msg">
+                    <div class="msg-icon">
+                        <img class="msg-icon-img" src="Vector.png" alt="">
+                    </div>
+                    <div class="msg-text">
+                        Tên tài khoản hoặc mật khẩu không hợp lệ
+                    </div>
+                </div>
+            </div> 
+        </div>   
+    </div>
+    <script>
+        document.getElementById("btn-login").onclick= function() {
+            if(document.getElementById("account").value.trim()=== "quanly" && document.getElementById("password").value.trim()=== "Tranthu@07") {
+                return window.location.href= window.location.origin+ "/admin/staff.html"
+            }
+            else {
+                document.getElementById("msg").style.display= "flex"
+            }
+        }
+        
+    </script>
+</body>
+</html>

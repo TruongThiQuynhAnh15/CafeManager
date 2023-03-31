@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng kết ca</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 16px;
+        }
+        .main {
+            width: 100%;
+            height: 100vh;
+            padding: 10px;
+            background-color: #94B1D0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-1 {
+            width: 100%;
+            height: 100%;
+            padding: 0 10px;
+        }
+        .main-2 {
+            width: 50%;
+            height: 100%;
+            padding: 0 10px;
+        }
+        .menu {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            justify-content: space-between;
+        }
+        .menu > div {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .item-cnt-menu-1 {
+            height: 40px;
+            width: 100%;
+            border-radius: 10px;
+            background-color: #0E59A6;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            white-space: nowrap ;
+            cursor: pointer;
+        }
+        .item-menu-1 {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 0 16px;
+            
+        }
+        .active-link-menu {
+            background: #fff !important;
+            color: #0E59A6 !important;
+        }
+        .active-link-menu .item-cnt-menu-1 {
+            background-color: #fff;
+            color: #0E59A6;
+        }
+        .main-content-1 {
+            border-radius: 10px;
+            background-color: #fff;
+            height: calc(100% - 60px);
+            padding: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+        .main-search-1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+        .main-search-input-1 {
+            width: 100%;
+            height: 44px;
+            border-radius: 80px;
+            outline-color: #2e89ff;
+            padding: 10px;
+        }
+        .icon-search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .img-icon-search {
+            width: 20px;
+            height: 20px;
+        }
+        .wrap-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+        }
+        .item-product {
+            width: calc(25% - 30px / 4);
+            border-radius: 10px;
+            background-color: #94B1D0;
+            overflow: hidden;
+
+        }
+        .wrap-item-product-img {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item-product-img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1 ;
+            object-fit: cover;
+        }
+        .title-item-product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            font-size: 16px;
+            color: #fff;
+            text-transform: capitalize;
+            background-color: #94B1D0;
+            width: 100%;
+        }
+        .amount-item-product {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #000;
+            height: 30px;
+
+        }
+        .amount-wrap-item-product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .amount-wrap-item-product-img {
+            width: 10px;
+            height: 10px;
+            object-fit: cover;
+        }
+        .item-product-price {
+            font-size: 12px;
+            color: #fff;
+        }
+        .pagination-1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+        }
+        .item-pagination-1 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .pagination-active {
+            background: #94B1D0;
+        }
+        .main-2 {
+            
+        }
+        .menu-reverse {
+            flex-direction: row-reverse;
+        }
+        .item-cnt-menu-img {
+            width: 18px;
+            height: 18px;
+        }
+        .item-cnt-menu-text {
+            color: #fff;
+        }
+        .item-extends {
+            gap: 10px;
+        }
+        .title-main-content-1 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: #0E59A6;
+            text-transform: uppercase;
+        }
+        .main-content-2-z {
+            width: 100%;
+            border-right: 2px solid #000;
+            padding-right: 70px;
+        }
+        .main-thead-table {
+            width: 100%;
+        }
+        .main-tbody-table {
+            width: 100%;
+        }
+        .a-xiaw-a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .wrap-img-sd {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap-img-sd-i {
+            width: 10px;
+            height: 10px;
+        }
+        .main-content-2-table {
+            width: 100%;
+        }
+        .as-thead td {
+            text-align: center;
+        }
+        .as-tbody td {
+            text-align: center;
+        }
+        .wrap-img-sd-z {
+            width: 15px;
+            height: 15px;
+        }
+        .as-thead td {
+            border-bottom: 1px solid #000
+        }
+        td {
+            padding: 16px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        .main-content-3-x {
+            width: 100%;
+            padding: 16px 16px 0 16px;
+        }
+        .main-content-3-1 {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-amount-3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .total-amount-3-txt {
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .display-amount-3 {
+            font-size: 12px;
+        }
+        .main-content-3-2 {
+            margin-top: 10px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-main-content-3-2 {
+            width: 230px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 40px;
+            background: #F02828;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .btn-res-content-3-2 {
+            background: #40BD2C;
+        }
+        .wrap-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap-img-2s {
+            width: 19px;
+            height: 19px;
+            object-fit: contain;
+        }
+        .cnt-2s {
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .w-1-header {
+            display: flex;
+            justify-content: center;
+
+        }
+        .main-content {
+            width: 100%;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 30px 10px;
+            display: flex;
+            justify-content: center;
+            height: calc(100% - 60px);
+        }
+        .main-content-1 {
+            width: 60%;
+            display: flex;
+        }
+        .main-content-2 {
+            width: 40%;
+            display: flex;
+
+        }
+        .td-app {
+            text-align: left !important;
+        }
+        .main-content-2-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0E59A6;
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            padding: 16px;
+        }
+        .w-sa-wa-a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .sa-wa-wszd {
+            font-weight: 600;
+            width: 200px
+        }
+        .w-m-content-2 {
+            width: 100%;
+        }
+        .w-kao-sa {
+            padding: 0 50px;
+        }
+        .btn-result {
+            width: 120px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #fff;
+            background: #40BD2C;
+            cursor: pointer;
+        }
+        .as-ass-a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            color: unset;
+            text-decoration: none;
+        }
+        a.active-link-menu {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="main-1">
+            <div class="menu">
+                <div class="w-1-header">
+                    <a href="staff.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1">
+                                Bán hàng
+                            </div>
+                        </div>
+                    </a>
+                    <a href="import.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1">
+                                Nhập hàng
+                            </div>
+                        </div>
+                    </a>
+                    <a class="active-link-menu" href="summary.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1 active-link-menu">
+                                Tổng kết ca
+                            </div>
+                        </div>
+                    </a>
+                    <a href="time_keeping.html">
+                        <div class="item-menu-1">
+                            <div class="item-cnt-menu-1">
+                                Chấm công
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-1-header">
+                    <div class="item-menu-1">
+                        <div class="item-cnt-menu-1 item-extends">
+                            <span class="item-cnt-menu-text">Trà my</span><img class="item-cnt-menu-img" src="Vector (5).png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="main-content-1">
+                    <div class="main-content-2-z">
+                        <table class="main-content-2-table">
+                            <thead class="main-thead-table">
+                                <tr class="as-thead">
+                                    <td></td>
+                                    <td class="td-app">Tên món</td>
+                                    <td>Số lượng</td>
+                                    <td>Đơn giá</td>
+                                    <td>Thành tiền</td>
+                                </tr>
+                            </thead>
+                            <tbody class="main-tbody-table">
+                                <tr class="as-tbody">
+                                    <td>
+                                        <div class="wrap-img-sd">
+                                            1.
+                                        </div>
+                                    </td>
+                                    <td class="td-app">Bạc xỉu</td>
+                                    <td><div class="a-xiaw-a">
+                                        <div class="amount-x-as">10</div>
+                                    </div></td>
+                                    <td>20.000</td>
+                                    <td>200.000</td>
+                                </tr>
+                                <tr class="as-tbody">
+                                    <td>
+                                        <div class="wrap-img-sd">
+                                            2.
+                                        </div>
+                                    </td>
+                                    <td class="td-app">Cà phê sữa</td>
+                                    <td><div class="a-xiaw-a">
+                                        <div class="amount-x-as">10</div>
+                                    </div></td>
+                                    <td>20.000</td>
+                                    <td>200.000</td>
+                                </tr>
+                                <tr class="as-tbody">
+                                    <td>
+                                        <div class="wrap-img-sd">
+                                            3.
+                                        </div>
+                                    </td>
+                                    <td class="td-app">Trà chanh</td>
+                                    <td><div class="a-xiaw-a">
+                                        <div class="amount-x-as">10</div>
+                                    </div></td>
+                                    <td>20.000</td>
+                                    <td>200.000</td>
+                                </tr>
+                                <tr class="as-tbody">
+                                    <td>
+                                        <div class="wrap-img-sd">
+                                            4.
+                                        </div>
+                                    </td>
+                                    <td class="td-app">Trà sen</td>
+                                    <td><div class="a-xiaw-a">
+                                        <div class="amount-x-as">10</div>
+                                    </div></td>
+                                    <td>20.000</td>
+                                    <td>200.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="main-content-2">
+                    <div class="w-m-content-2">
+                        <div class="main-content-2-title">
+                            Tổng kết ca
+                        </div>
+                        <div class="w-kao-sa">
+                            <div class="w-sa-wa-a">
+                                <div class="sa-wa-wszd">Tên nhân viên</div>
+                                <div class="das-awdc-s">Trần Thị Trà My</div>
+                            </div>
+                            <div class="w-sa-wa-a">
+                                <div class="sa-wa-wszd">Thời gian</div>
+                                <div class="das-awdc-s">15:08 02/12/2022</div>
+                            </div>
+                            <div class="w-sa-wa-a">
+                                <div class="sa-wa-wszd">Tổng số lượng</div>
+                                <div class="das-awdc-s">40</div>
+                            </div>
+                            <div class="w-sa-wa-a">
+                                <div class="sa-wa-wszd">Tổng tiền</div>
+                                <div class="das-awdc-s">800.000</div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="as-ass-a">
+                                <div id="btn-result" class="btn-result">
+                                    Kết ca
+                                </div>
+                                <style>
+                                    .btn-done-result {
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 5px;
+                                        display: none;
+                                    }
+                                    .tick-done-result {
+                                        width: 18px;
+                                        height: 14px;
+                                        object-fit: contain;
+                                    }
+                                    .t-done-result {
+                                        font-weight: 700;
+                                        color: #40BD2C;
+                                    }
+                                </style>
+                                <div id="btn-done-result" class="btn-done-result">
+                                    <img src="Vector (14).png" class="tick-done-result"></img>    
+                                    <span class="t-done-result">Kết ca thành công</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("btn-result").onclick= function() {
+        document.getElementById("btn-result").style.display= "none"
+        document.getElementById("btn-done-result").style.display= "flex"
+    }
+</script>
+</html>
