@@ -610,7 +610,7 @@
                     <script>
                         var today = new Date();
                         var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-                        var time = today.getSeconds()+ ":" + today.getMinutes() + ":" +today.getHours()  ;
+                        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                         var dateTime = time+' '+date;
                      
                         document.getElementById("hvn").innerHTML = dateTime;
