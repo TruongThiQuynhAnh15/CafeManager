@@ -430,7 +430,7 @@
                 <div class="w-1-header">
                     <div class="item-menu-1">
                         <div class="item-cnt-menu-1 item-extends">
-                            <span class="item-cnt-menu-text">Trà my</span><img class="item-cnt-menu-img" src="Vector (5).png" alt="">
+                            <span class="item-cnt-menu-text">Quỳnh Anh</span><img class="item-cnt-menu-img" src="Vector (5).png" alt="">
                         </div>
                     </div>
                 </div>
@@ -596,7 +596,7 @@
                             Tên nhân viên:
                         </div>
                         <div class="sa-as-easf-s">
-                            Phạm Thị Trà My
+                            Trương Thị Quỳnh Anh
                         </div>
                     </div>
                     <div class="asa-wa-d-ewa-as">
@@ -604,9 +604,15 @@
                             Thời gian: 
                         </div>
                         <div class="sa-as-easf-s">
-                            12:00 02/12/2022
+                            <p id="hvn"></p>
                         </div>
                     </div>
+                    <script>
+                        var today = new Date();
+                        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                        
+                        document.getElementById("hvn").innerHTML = time;
+                       </script>
                     <br>
                     <div class="wrap-btn">
                         <div id="btn-main" class="btn-main">
